@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Builder</title>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <link rel="stylesheet" href="./css/snackbar.min.css"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+
+<body style="background-color: #f5ecec;">
+<script src="./js/main.js"></script>
+<script src="./js/jquery-3.6.3.min.js"></script>
+<script src="./js/snackbar.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div style="min-height: 50px;"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1">
+            <div style="min-height: 50px;"></div>
+        </div>
+        <div class="col-5">
+            <center>
+                <div style="min-height: 50px;">
+                    <table id="menuArea" class="table" style="text-align: center;">
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                              style="width: 80px; max-width: 80px; text-align: center;"><b>Name</b></span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Price" value="" id="projectName"
+                                           style="text-align: center; width: 150px; max-width: 150px;"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                              style="width: 80px; max-width: 80px; text-align: center;"><b>Author</b></span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Blocks" value="" id="author"
+                                           style="text-align: center; width: 150px; max-width: 150px;"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                              style="width: 80px; max-width: 80px; text-align: center;"><b>Email</b></span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Square" value="" id="email"
+                                           style="text-align: center; width: 150px; max-width: 150px;"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </center>
+        </div>
+        <div class="col-5">
+            <div style="min-height: 50px;"></div>
+        </div>
+        <div class="col-1">
+            <div style="min-height: 50px;"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-1 debug1">
+            <div style="min-height: 50px;">
+                <center>
+                    <table class="table" style="text-align: center;">
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width: 40px;"><b>$</b></span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Price" value="0"
+                                           id="curWorkPrice" style="text-align: center;"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width: 40px;"><b>❏</b></span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Blocks" value="0"
+                                           id="curWorkBlocks" style="text-align: center;"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                                <span class="input-group-text" style="width: 40px;">
+                                                    <b>m<sup>2</sup></b>
+                                                </span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Square" value="0"
+                                           id="curWorkSquare" style="text-align: center;"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+                <center>
+                    <table class="table" style="text-align: center;">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Project limits</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width: 40px;"><b>$</b></span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Price" value="10000"
+                                           id="maxWorkPrice" style="text-align: center;"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width: 40px;"><b>❏</b></span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Blocks" value="10000"
+                                           id="maxWorkBlocks" style="text-align: center;"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                                <span class="input-group-text" style="width: 40px;">
+                                                    <b>m<sup>2</sup></b>
+                                                </span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Square" value="10000"
+                                           id="maxWorkSquare" style="text-align: center;"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <button type="button" class="btn btn-secondary btn-rounded menuAreaButton"
+                                        id="setLimits" onclick="setLimits()">Apply
+                                </button>
+                            </th>
+                        </tr>
+                    </table>
+                </center>
+
+                <center>
+                    <table>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-success btn-rounded menuAreaButton" id="loadBtn"
+                                        onclick="loadData()"><i class="fa fa-upload"></i> Load
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-info btn-rounded menuAreaButton" id="saveBtn"
+                                        onclick="saveData()"><i class="fa fa-download"></i> Save
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-secondary btn-rounded menuAreaButton" id="resetBtn"
+                                        onclick="resetData()"><i class="fa fa-close"></i> Reset
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                    <hr class="hr"/>
+                </center>
+            </div>
+        </div>
+        <div class="col-5 debug2">
+            <div style="min-height: 50px;">
+                <center>
+                    <table id="workingArea" class="workingArea"></table>
+                </center>
+            </div>
+        </div>
+        <div class="col-5 debug3">
+            <div style="min-height: 50px;">
+                <center>
+                    <table id="buildBlocks" class="buildBlocks" cellpadding="0" cellspacing="0"></table>
+                </center>
+            </div>
+        </div>
+        <div class="col-1 debug4">
+            <div style="min-height: 50px;" class="">
+                <center>
+                    <table class="table" style="text-align: center;">
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" aria-label="Square" value="0"
+                                           id="infoBoardName" style="text-align: center; width: 30px; height: 30px;"/>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width: 30px; height: 30px;"
+                                              id="infoBoardBlock"></span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" aria-label="Price" value="0"
+                                           id="infoBoardPrice" style="text-align: center;"/>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width: 40px;"><b>$</b></span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" aria-label="Blocks" value="0"
+                                           id="infoBoardAvialeble" style="text-align: center;"/>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width: 40px;"><b>❏</b></span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" aria-label="Square" value="0"
+                                           id="infoBoardSquare" style="text-align: center;"/>
+                                    <div class="input-group-prepend">
+                                                <span class="input-group-text" style="width: 40px;">
+                                                    <b>m<sup>2</sup></b>
+                                                </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" aria-label="Square" value="0"
+                                           id="infoBoardMaterial" style="text-align: center;"/>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width: 40px;"><b>♺</b></span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+                <center>
+                    <div class="overflow-auto p-2 bg-light"
+                         style="max-width: 135px; min-width: 135px; max-height: 350px; min-height: 350px;">
+                        <table>
+                            <tr>
+                                <td style="width: 50px;"><img src="img/examples/example-1.png" style="width: 100px;"
+                                                              onclick="showImageModal(1)"/></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50px;"><img src="img/examples/example-2.png" style="width: 100px;"
+                                                              onclick="showImageModal(2)"/></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50px;"><img src="img/examples/example-3.png" style="width: 100px;"
+                                                              onclick="showImageModal(3)"/></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50px;"><img src="img/examples/example-4.png" style="width: 100px;"
+                                                              onclick="showImageModal(4)"/></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50px; -webkit-filter:  blur(0.3em);"><img
+                                        src="img/examples/example-5.png" style="width: 100px;"
+                                        onclick="showImageModal(8)"/></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50px; -webkit-filter:  blur(0.3em);"><img
+                                        src="img/examples/example-6.png" style="width: 100px;"
+                                        onclick="showImageModal(8)"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1 debug1">
+            <div style="min-height: 50px;"></div>
+        </div>
+        <div class="col-5 debug2">
+            <div style="min-height: 50px;"></div>
+        </div>
+
+        <div class="col-5 debug3">
+            <center>
+                <table class="table" style="text-align: center;">
+                    <tbody>
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" class="btn-check" id="btn-check-construction" autocomplete="off"/>
+                            <label class="btn btn-outline-primary filterAreaLabel" for="btn-check-construction">Construction</label><br/>
+                        </th>
+                        <th scope="row">
+                            <input type="checkbox" class="btn-check" id="btn-check-electronics" autocomplete="off"/>
+                            <label class="btn btn-outline-primary filterAreaLabel" for="btn-check-electronics">Electronics</label><br/>
+                        </th>
+                        <th scope="row">
+                            <input type="checkbox" class="btn-check" id="btn-check-home" autocomplete="off"/>
+                            <label class="btn btn-outline-primary filterAreaLabel"
+                                   for="btn-check-home">Home</label><br/>
+                        </th>
+                        <th scope="row">
+                            <input type="checkbox" class="btn-check" id="btn-check-greens" autocomplete="off"/>
+                            <label class="btn btn-outline-primary filterAreaLabel" for="btn-check-greens">Greens</label><br/>
+                        </th>
+                        <th scope="row">
+                            <input type="checkbox" class="btn-check" id="btn-check-other" autocomplete="off"/>
+                            <label class="btn btn-outline-primary filterAreaLabel"
+                                   for="btn-check-other">Other</label><br/>
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
+            </center>
+        </div>
+        <div class="col-1 debug4">
+            <div style="min-height: 50px;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <center>
+                    <img src="img/examples/example-1.png" width="400px">
+                    <table style="text-align: center">
+                        <tbody>
+                        <tr>
+                            <td style="min-width: 100px;">Created by <b>OTO JERMAKS</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>otojermaks@gmail.com</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>★★★★★</b></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeImageModal(1)">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" onclick="loadProjectByModalIndex(1)">Load</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <center>
+                    <img src="img/examples/example-2.png" width="400px">
+                    <table style="text-align: center">
+                        <tbody>
+                        <tr>
+                            <td style="min-width: 100px;">Created by <b>OTO JERMAKS</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>otojermaks@gmail.com</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>★★★★</b></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeImageModal(2)">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" onclick="loadProjectByModalIndex(2)">Load</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <center>
+                    <img src="img/examples/example-3.png" width="400px">
+                    <table style="text-align: center">
+                        <tbody>
+                        <tr>
+                            <td style="min-width: 100px;">Created by <b>OTO JERMAKS</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>otojermaks@gmail.com</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>★★★★</b></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeImageModal(3)">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" onclick="loadProjectByModalIndex(3)">Load</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <center>
+                    <img src="img/examples/example-4.png" width="400px">
+                    <table style="text-align: center">
+                        <tbody>
+                        <tr>
+                            <td style="min-width: 100px;">Created by <b>OTO JERMAKS</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>otojermaks@gmail.com</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>★★★</b></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeImageModal(4)">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" onclick="loadProjectByModalIndex(4)">Load</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <center>
+                    <img src="img/examples/example-1.png" width="400px">
+                    <table style="text-align: center">
+                        <tbody>
+                        <tr>
+                            <td style="min-width: 100px;">Created by <b>NATAN JERMAKS</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>otojermaks@gmail.com</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>★★★★★</b></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeImageModal(5)">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" onclick="loadProjectByModalIndex(5)">Load</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel6" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <center>
+                    <img src="img/examples/example-1.png" width="400px">
+                    <table style="text-align: center">
+                        <tbody>
+                        <tr>
+                            <td style="min-width: 100px;">Created by <b>NATAN JERMAKS</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>otojermaks@gmail.com</b></td>
+                        </tr>
+                        <tr>
+                            <td style="min-width: 100px;"><b>★★★★★</b></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeImageModal(6)">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" onclick="loadProjectByModalIndex(6)">Load</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal7" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header flex-column" style="text-align: center; background-color: #ee2a3c">
+                <h4 class="modal-title w-100"><b>Downloading is prohibited</b></h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <p><b>To download this project, clear the previous project of all data</b></p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeImageModal(7)">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="modal8" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header flex-column" style="text-align: center; background-color: #2a78ee">
+                <h4 class="modal-title w-100"><b>Downloading is prohibited</b></h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <p><b>At the moment , this project is not available</b></p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeImageModal(8)">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
